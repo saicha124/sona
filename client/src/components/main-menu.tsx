@@ -20,7 +20,7 @@ const menuItems = [
 
 export function MainMenu() {
   return (
-    <div className="w-full bg-[#3d7a8a] text-white py-1 px-2 border-b border-white/20">
+    <div className="w-full bg-[#3d7a8a] text-white py-1 px-2 border-b border-white/20 z-50">
       <NavigationMenu className="max-w-none justify-start">
         <NavigationMenuList className="gap-0">
           {menuItems.map((item) => (
