@@ -4,6 +4,7 @@ import { SonatrachHeader } from "@/components/ui/sonatrach-header";
 import { LogOut, Home, User, Settings, FileText } from "lucide-react";
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
+import { MainMenu } from "@/components/main-menu";
 
 export default function Dashboard() {
   const [, setLocation] = useLocation();
@@ -32,6 +33,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
+      <MainMenu />
       {/* Navbar */}
       <nav className="bg-white border-b border-slate-200 shadow-sm px-6 py-4 flex items-center justify-between z-20">
         <div className="flex items-center gap-2">
