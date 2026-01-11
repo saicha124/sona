@@ -3,14 +3,20 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import AuthPage from "@/pages/auth-page";
+import Dashboard from "@/pages/dashboard";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
+      {/* Auth Route */}
+      <Route path="/auth" component={AuthPage} />
+      
+      {/* Protected Route - The Dashboard component handles the redirect if not logged in */}
+      <Route path="/" component={Dashboard} />
+      
+      {/* 404 Fallback */}
       <Route component={NotFound} />
     </Switch>
   );
