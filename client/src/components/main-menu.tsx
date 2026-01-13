@@ -20,7 +20,7 @@ const menuItems = [
 
 export function MainMenu() {
   return (
-    <div className="w-full bg-[#3d7a8a] text-white py-1 px-2 border-b border-white/20 z-50">
+    <div className="w-full bg-[#2c5e6b] text-white/90 py-0.5 px-2 border-b border-white/10 shadow-sm z-50">
       <NavigationMenu className="max-w-none justify-start">
         <NavigationMenuList className="gap-0">
           {menuItems.map((item) => (
@@ -28,7 +28,7 @@ export function MainMenu() {
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "bg-transparent text-white hover:bg-white/10 hover:text-white h-8 px-3 text-sm font-medium transition-colors"
+                  "bg-transparent text-white/90 hover:bg-white/15 hover:text-white h-7 px-3 text-[13px] font-medium transition-colors rounded-none focus:bg-white/20"
                 )}
                 href="#"
               >

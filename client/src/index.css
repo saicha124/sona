@@ -39,7 +39,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased font-body;
+    @apply bg-slate-50 text-foreground antialiased font-body;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -48,7 +48,7 @@
 
 /* Custom Gradients and Utilities */
 .bg-corporate-gradient {
-  background: linear-gradient(135deg, hsl(215 100% 45%) 0%, hsl(215 80% 35%) 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
 }
 
 .text-shadow-sm {
@@ -56,7 +56,11 @@
 }
 
 .glass-panel {
-  @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-xl;
+  @apply bg-white border border-slate-200 shadow-sm;
+}
+
+.sidebar-item-active {
+  @apply bg-blue-600 text-white shadow-md shadow-blue-200/50 hover:bg-blue-700;
 }
 
 /* Input Autofill Styles */

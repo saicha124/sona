@@ -61,18 +61,44 @@ export default function Dashboard() {
       {/* Main Layout */}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-slate-200 hidden md:flex flex-col">
-          <div className="p-4 space-y-1">
-            <NavItem icon={<Home className="w-4 h-4" />} label="Tableau de bord" active />
-            <NavItem icon={<FileText className="w-4 h-4" />} label="Réservations" />
-            <NavItem icon={<User className="w-4 h-4" />} label="Clients" />
-            <NavItem icon={<Settings className="w-4 h-4" />} label="Paramètres" />
+        <aside className="w-72 bg-white border-r border-slate-200 hidden md:flex flex-col shadow-sm">
+          <div className="p-6 bg-slate-50/50 border-b border-slate-100">
+            <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Menu Principal</h2>
+            <div className="space-y-1">
+              <NavItem icon={<Home className="w-4 h-4" />} label="DONNEES DE BASE" active />
+              <NavItem icon={<FileText className="w-4 h-4" />} label="EDITION DES ETATS" />
+              <NavItem icon={<Settings className="w-4 h-4" />} label="GESTION HOTELLERIE" />
+              <NavItem icon={<User className="w-4 h-4" />} label="SECURITE" />
+            </div>
           </div>
           
-          <div className="mt-auto p-6 border-t border-slate-100">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
-              <p className="text-xs text-blue-800 font-medium mb-1">Besoin d'aide ?</p>
-              <p className="text-xs text-blue-600">Contactez le support informatique au 5555.</p>
+          <div className="flex-1 p-4 overflow-y-auto">
+            {/* Contextual sub-menu based on selection */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-2">Données de base</h3>
+                <div className="space-y-0.5">
+                  <button className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Dossier Agents
+                  </button>
+                  <button className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Liste des Hôtels
+                  </button>
+                  <button className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Liste des Offres
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-auto p-6 border-t border-slate-100 bg-slate-50/30">
+            <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+              <p className="text-xs text-slate-800 font-bold mb-1">Assistance</p>
+              <p className="text-[11px] text-slate-500 leading-relaxed">Support informatique interne : poste 5555</p>
             </div>
           </div>
         </aside>
@@ -150,10 +176,10 @@ export default function Dashboard() {
 // Sub-components for Dashboard
 function NavItem({ icon, label, active = false }: { icon: React.ReactNode, label: string, active?: boolean }) {
   return (
-    <button className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
+    <button className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[12px] font-black tracking-wider transition-all duration-200 ${
       active 
-        ? "bg-blue-50 text-primary" 
-        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+        ? "sidebar-item-active" 
+        : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
     }`}>
       {icon}
       {label}
