@@ -204,7 +204,15 @@ function LegacyTreeSidebar() {
                 <TreeItem id="CONSULTATION" label="CONSULTATION DES RESERVATION PAR AGENT" />
               </TreeItem>
             </TreeItem>
-            <TreeItem id="SECURITE" label="SECURITE" />
+            <TreeItem id="SECURITE" label="SECURITE">
+              <TreeItem id="PWD_CHANGE" label="CHANGEMENT DE MOT DE PASSE" />
+              <TreeItem id="DEF_MENU" label="DEFINITION DU MENU" />
+              <TreeItem id="DEF_FORMS" label="DEFINITION DES FORMS" />
+              <TreeItem id="DEF_GROUPS" label="DEFINITION DES GROUPES UTILISATEURS" />
+              <TreeItem id="PARAMS" label="LISTE DES PARAMETRES" />
+              <TreeItem id="PERMISSIONS" label="PERMISSIONS UTILISATEURS SUR LES FONCTIONS" />
+              <TreeItem id="DEF_USERS" label="DEFINITION DES UTILISATEURS" />
+            </TreeItem>
           </TreeItem>
         </div>
       </div>
