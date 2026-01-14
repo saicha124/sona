@@ -35,10 +35,21 @@ export const regions = pgTable("regions", {
   email: text("email"),
 });
 
+export const hotels = pgTable("hotels", {
+  id: serial("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  nom: text("nom").notNull(),
+  adresse: text("adresse"),
+  ville: text("ville"),
+  telephone: text("telephone"),
+  etoiles: text("etoiles"),
+});
+
 export const insertUserSchema = createInsertSchema(users);
 export const insertAgentSchema = createInsertSchema(agents);
 export const insertOfferSchema = createInsertSchema(offers);
 export const insertRegionSchema = createInsertSchema(regions);
+export const insertHotelSchema = createInsertSchema(hotels);
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -48,3 +59,5 @@ export type Offer = typeof offers.$inferSelect;
 export type InsertOffer = z.infer<typeof insertOfferSchema>;
 export type Region = typeof regions.$inferSelect;
 export type InsertRegion = z.infer<typeof insertRegionSchema>;
+export type Hotel = typeof hotels.$inferSelect;
+export type InsertHotel = z.infer<typeof insertHotelSchema>;
