@@ -4,17 +4,18 @@ import { LogOut, Home, User, Settings, FileText, ChevronRight, ChevronDown, File
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { MainMenu } from "@/components/main-menu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Dashboard() {
   const [, setLocation] = useLocation();
   const { data: user, isLoading } = useUser();
   const { mutate: logout } = useLogout();
 
-  if (!isLoading && !user) {
-    setLocation("/auth");
-    return null;
-  }
+  useEffect(() => {
+    if (!isLoading && !user) {
+      setLocation("/auth");
+    }
+  }, [user, isLoading, setLocation]);
 
   if (isLoading) {
     return (
@@ -22,6 +23,10 @@ export default function Dashboard() {
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
+  }
+
+  if (!user) {
+    return null;
   }
 
   const handleLogout = () => {
