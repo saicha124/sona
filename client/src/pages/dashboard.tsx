@@ -106,6 +106,20 @@ export default function Dashboard() {
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
                     Liste des Régions
                   </button>
+                  <button 
+                    onClick={() => setLocation("/cities")}
+                    className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Liste des Villes
+                  </button>
+                  <button 
+                    onClick={() => setLocation("/expense-types")}
+                    className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Prises En Charge
+                  </button>
                 </div>
               </div>
             </div>
