@@ -42,7 +42,24 @@ export const hotels = pgTable("hotels", {
   adresse: text("adresse"),
   ville: text("ville"),
   telephone: text("telephone"),
+  fax: text("fax"),
+  siteInternet: text("site_internet"),
+  email: text("email"),
+  utilise: text("utilise").default("true"),
   etoiles: text("etoiles"),
+});
+
+export const hotelTariffs = pgTable("hotel_tariffs", {
+  id: serial("id").primaryKey(),
+  hotelId: serial("hotel_id"),
+  annee: text("annee").notNull(),
+  typeChambre: text("type_chambre").notNull(),
+  tarifChambreHt: text("tarif_chambre_ht"),
+  tva: text("tva"),
+  tarifRest: text("tarif_rest"),
+  tarifPetitdej: text("tarif_petitdej"),
+  statut: text("statut"),
+  observation: text("observation"),
 });
 
 export const insertUserSchema = createInsertSchema(users);
@@ -50,6 +67,7 @@ export const insertAgentSchema = createInsertSchema(agents);
 export const insertOfferSchema = createInsertSchema(offers);
 export const insertRegionSchema = createInsertSchema(regions);
 export const insertHotelSchema = createInsertSchema(hotels);
+export const insertHotelTariffSchema = createInsertSchema(hotelTariffs);
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -61,3 +79,5 @@ export type Region = typeof regions.$inferSelect;
 export type InsertRegion = z.infer<typeof insertRegionSchema>;
 export type Hotel = typeof hotels.$inferSelect;
 export type InsertHotel = z.infer<typeof insertHotelSchema>;
+export type HotelTariff = typeof hotelTariffs.$inferSelect;
+export type InsertHotelTariff = z.infer<typeof insertHotelTariffSchema>;
