@@ -102,15 +102,6 @@ export default function Dashboard() {
               />
             </div>
 
-            {/* Quick Actions */}
-            <h2 className="text-xl font-bold text-slate-800 mb-6">Actions Rapides</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <QuickAction icon={<FileText />} label="Nouvelle Réservation" onClick={() => setLocation("/reservations")} />
-              <QuickAction icon={<User />} label="Enregistrer Client" onClick={() => setLocation("/agents")} />
-              <QuickAction icon={<Settings />} label="Disponibilités" />
-              <QuickAction icon={<LogOut className="rotate-180" />} label="Check-in Rapide" />
-            </div>
-
             {/* Placeholder Content Area */}
             <div className="mt-10 bg-white rounded-xl shadow-sm border border-slate-200 p-8 flex flex-col items-center justify-center min-h-[300px] text-center">
               <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4">
@@ -187,7 +178,7 @@ function LegacyTreeSidebar() {
         <div className="ml-[-1rem]">
           <TreeItem id="MENU PRINCIPAL" label="MENU PRINCIPAL" icon={<FileCode className="w-3.5 h-3.5" />}>
             <TreeItem id="DONNEES DE BASE" label="DONNEES DE BASE">
-              <TreeItem id="AGENTS" label="Dossier Agents" path="/agents" />
+              <TreeItem id="AGENTS" label="Saisie des informations relatives Des Agents" path="/agents" />
               <TreeItem id="HOTELS" label="Liste des Hôtels" path="/hotels" />
               <TreeItem id="OFFRES" label="Liste des Offres" path="/offers" />
               <TreeItem id="VILLES" label="Liste des Villes" path="/cities" />

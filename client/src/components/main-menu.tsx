@@ -8,7 +8,6 @@ import {
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  "Action",
   "Edition",
   "Interrogation",
   "Block",
