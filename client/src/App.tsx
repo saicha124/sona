@@ -7,6 +7,7 @@ import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AgentForm from "@/pages/agent-form";
 import HotelForm from "@/pages/hotel-form";
+import ReservationForm from "@/pages/reservation-form";
 import OffersPage from "@/pages/offers-page";
 import CitiesPage from "@/pages/cities-page";
 import ExpenseTypesPage from "@/pages/expense-types-page";
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/" component={Dashboard} />
       <Route path="/agents" component={AgentForm} />
       <Route path="/hotels" component={HotelForm} />
+      <Route path="/reservations" component={ReservationForm} />
       <Route path="/offers" component={OffersPage} />
       <Route path="/cities" component={CitiesPage} />
       <Route path="/expense-types" component={ExpenseTypesPage} />

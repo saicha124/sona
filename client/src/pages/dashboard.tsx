@@ -67,7 +67,11 @@ export default function Dashboard() {
             <div className="space-y-1">
               <NavItem icon={<Home className="w-4 h-4" />} label="DONNEES DE BASE" active />
               <NavItem icon={<FileText className="w-4 h-4" />} label="EDITION DES ETATS" />
-              <NavItem icon={<Settings className="w-4 h-4" />} label="GESTION HOTELLERIE" />
+              <NavItem 
+                icon={<Settings className="w-4 h-4" />} 
+                label="GESTION HOTELLERIE" 
+                onClick={() => setLocation("/reservations")}
+              />
               <NavItem icon={<User className="w-4 h-4" />} label="SECURITE" />
             </div>
           </div>
@@ -204,9 +208,11 @@ export default function Dashboard() {
 }
 
 // Sub-components for Dashboard
-function NavItem({ icon, label, active = false }: { icon: React.ReactNode, label: string, active?: boolean }) {
+function NavItem({ icon, label, active = false, onClick }: { icon: React.ReactNode, label: string, active?: boolean, onClick?: () => void }) {
   return (
-    <button className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[12px] font-black tracking-wider transition-all duration-200 ${
+    <button 
+      onClick={onClick}
+      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[12px] font-black tracking-wider transition-all duration-200 ${
       active 
         ? "sidebar-item-active" 
         : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"

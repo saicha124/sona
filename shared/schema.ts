@@ -75,6 +75,31 @@ export const expenseTypes = pgTable("expense_types", {
   libelle: text("libelle").notNull(),
 });
 
+export const reservations = pgTable("reservations", {
+  id: serial("id").primaryKey(),
+  numeroReservation: text("numero_reservation").notNull().unique(),
+  dateReservation: text("date_reservation"),
+  numeroPriseEnCharge: text("numero_prise_en_charge"),
+  structureEmettrice: text("structure_emettrice"),
+  compteAnalytique: text("compte_analytique"),
+  dateDebut: text("date_debut"),
+  dateFin: text("date_fin"),
+  duree: text("duree"),
+  etat: text("etat").default("Saisie"),
+  hotelId: serial("hotel_id"),
+  observations: text("observations"),
+  offreCode: text("offre_code"),
+  priseEnChargeTypes: text("prise_en_charge_types").array(),
+  etabliPar: text("etabli_par"),
+});
+
+export const reservationAgents = pgTable("reservation_agents", {
+  id: serial("id").primaryKey(),
+  reservationId: serial("reservation_id"),
+  agentMatricule: text("agent_matricule"),
+  annule: text("annule").default("false"),
+});
+
 export const insertUserSchema = createInsertSchema(users);
 export const insertAgentSchema = createInsertSchema(agents);
 export const insertOfferSchema = createInsertSchema(offers);
@@ -83,6 +108,8 @@ export const insertHotelSchema = createInsertSchema(hotels);
 export const insertHotelTariffSchema = createInsertSchema(hotelTariffs);
 export const insertCitySchema = createInsertSchema(cities);
 export const insertExpenseTypeSchema = createInsertSchema(expenseTypes);
+export const insertReservationSchema = createInsertSchema(reservations);
+export const insertReservationAgentSchema = createInsertSchema(reservationAgents);
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -100,3 +127,7 @@ export type City = typeof cities.$inferSelect;
 export type InsertCity = z.infer<typeof insertCitySchema>;
 export type ExpenseType = typeof expenseTypes.$inferSelect;
 export type InsertExpenseType = z.infer<typeof insertExpenseTypeSchema>;
+export type Reservation = typeof reservations.$inferSelect;
+export type InsertReservation = z.infer<typeof insertReservationSchema>;
+export type ReservationAgent = typeof reservationAgents.$inferSelect;
+export type InsertReservationAgent = z.infer<typeof insertReservationAgentSchema>;
