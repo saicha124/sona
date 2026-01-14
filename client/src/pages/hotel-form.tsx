@@ -106,7 +106,7 @@ export default function HotelForm() {
                         <FormItem className="md:col-span-2">
                           <FormLabel className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Adresse</FormLabel>
                           <FormControl>
-                            <Input {...field} className="bg-slate-50 border-slate-200 focus:bg-white transition-colors" />
+                            <Input {...field} value={field.value || ""} className="bg-slate-50 border-slate-200 focus:bg-white transition-colors" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
