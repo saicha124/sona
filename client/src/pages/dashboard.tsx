@@ -33,26 +33,33 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <MainMenu />
-      {/* Navbar */}
-      <nav className="bg-white border-b border-slate-200 shadow-sm px-6 py-4 flex items-center justify-between z-20">
-        <div className="flex items-center gap-2">
-           <div className="bg-primary text-white p-2 rounded font-bold">SH</div>
-           <span className="font-bold text-lg text-slate-800 hidden sm:inline-block">Gestion Hôtellerie</span>
+      <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 px-6 py-3 flex items-center justify-between z-30 shadow-sm">
+        <div className="flex items-center gap-3">
+           <div className="bg-primary text-white p-2 rounded-lg font-black shadow-lg shadow-primary/20 transform hover:scale-110 transition-transform">SH</div>
+           <div className="flex flex-col">
+             <span className="font-black text-sm tracking-tight text-slate-900 leading-tight uppercase">Gestion Hôtellerie</span>
+             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Division Production</span>
+           </div>
         </div>
         
         <div className="flex items-center gap-4">
-          <div className="flex flex-col items-end mr-2">
-            <span className="text-sm font-bold text-slate-900">{user?.username}</span>
-            <span className="text-xs text-slate-500 uppercase">{user?.role || "Utilisateur"}</span>
+          <div className="flex items-center gap-3 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-100">
+            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
+              {user?.username?.substring(0, 2).toUpperCase()}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-black text-slate-900 leading-none">{user?.username}</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase tracking-tighter">{user?.role || "Utilisateur"}</span>
+            </div>
           </div>
           <Button 
             variant="ghost" 
             size="icon"
             onClick={handleLogout}
-            className="text-slate-500 hover:text-red-600 hover:bg-red-50"
+            className="text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all"
             title="Se déconnecter"
           >
-            <LogOut className="w-5 h-5" />
+            <LogOut className="w-4 h-4" />
           </Button>
         </div>
       </nav>
@@ -220,33 +227,43 @@ function LegacyTreeSidebar() {
 
 function DashboardCard({ title, value, subtitle, trend, color }: { title: string, value: string, subtitle: string, trend: string, color: "blue" | "orange" | "slate" }) {
   const colorStyles = {
-    blue: "border-t-4 border-t-blue-600",
-    orange: "border-t-4 border-t-orange-500",
-    slate: "border-t-4 border-t-slate-500"
+    blue: "border-t-4 border-t-primary",
+    orange: "border-t-4 border-t-accent",
+    slate: "border-t-4 border-t-slate-900"
   };
 
   const iconColor = {
-    blue: "text-blue-600 bg-blue-50",
-    orange: "text-orange-600 bg-orange-50",
-    slate: "text-slate-600 bg-slate-50"
+    blue: "text-primary bg-primary/5",
+    orange: "text-accent bg-accent/5",
+    slate: "text-slate-900 bg-slate-900/5"
   };
 
   return (
-    <div className={`bg-white rounded-xl shadow-sm border border-slate-100 p-6 ${colorStyles[color]} card-hover`}>
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{title}</h3>
-        <div className={`p-2 rounded-lg ${iconColor[color]}`}>
-          {color === "blue" && <Monitor className="w-4 h-4" />}
-          {color === "orange" && <User className="w-4 h-4" />}
-          {color === "slate" && <FileText className="w-4 h-4" />}
+    <motion.div 
+      whileHover={{ y: -5 }}
+      className={`bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(0,0,0,0.02)] border border-slate-100 p-6 ${colorStyles[color]} relative overflow-hidden group`}
+    >
+      <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:scale-150 transition-transform duration-700">
+        {color === "blue" && <Monitor className="w-24 h-24" />}
+        {color === "orange" && <User className="w-24 h-24" />}
+        {color === "slate" && <FileText className="w-24 h-24" />}
+      </div>
+
+      <div className="flex justify-between items-start mb-6">
+        <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] leading-none">{title}</h3>
+        <div className={`p-2.5 rounded-xl ${iconColor[color]} transition-colors`}>
+          {color === "blue" && <Monitor className="w-5 h-5" />}
+          {color === "orange" && <User className="w-5 h-5" />}
+          {color === "slate" && <FileText className="w-5 h-5" />}
         </div>
       </div>
-      <div className="text-4xl font-black text-slate-900 mb-1">{value}</div>
-      <div className="text-sm text-slate-500 mb-4 font-medium">{subtitle}</div>
-      <div className={`text-[10px] font-bold px-2 py-1 rounded-full inline-block ${color === 'blue' ? 'bg-blue-50 text-blue-700' : color === 'orange' ? 'bg-orange-50 text-orange-700' : 'bg-slate-50 text-slate-700'}`}>
+      <div className="text-4xl font-black text-slate-900 mb-1 tracking-tight">{value}</div>
+      <div className="text-xs text-slate-500 mb-6 font-bold uppercase tracking-tight">{subtitle}</div>
+      <div className={`text-[9px] font-black px-3 py-1.5 rounded-full inline-flex items-center gap-1.5 ${color === 'blue' ? 'bg-primary/10 text-primary' : color === 'orange' ? 'bg-accent/10 text-accent' : 'bg-slate-100 text-slate-700 uppercase tracking-widest'}`}>
+        <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
         {trend}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
