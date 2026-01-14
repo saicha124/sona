@@ -50,89 +50,89 @@ export default function ReservationForm() {
       <MainMenu />
       
       {/* Title Bar */}
-      <div className="bg-[#78b3b3] text-white px-3 py-2 flex items-center justify-between border-b border-[#5a8a8a] shrink-0">
+      <div className="bg-[#78b3b3] text-white px-3 py-1.5 flex items-center justify-between border-b border-[#5a8a8a]">
         <div className="flex items-center gap-2">
           <Calendar className="w-4 h-4" />
-          <h1 className="text-[14px] font-bold uppercase tracking-wide">SAISIE DES RESERVATIONS</h1>
+          <h1 className="text-[13px] font-bold uppercase">SAISIE DES RESERVATIONS</h1>
         </div>
-        <div className="flex gap-2">
-          <button className="p-1 hover:bg-white/20 rounded"><ChevronLeft className="w-5 h-5" /></button>
-          <button className="p-1 hover:bg-white/20 rounded"><ChevronRight className="w-5 h-5" /></button>
-          <button onClick={() => setLocation("/")} className="p-1 hover:bg-white/20 rounded"><ArrowLeft className="w-5 h-5" /></button>
+        <div className="flex gap-1">
+          <button className="p-0.5 hover:bg-white/20 rounded"><ChevronLeft className="w-4 h-4" /></button>
+          <button className="p-0.5 hover:bg-white/20 rounded"><ChevronRight className="w-4 h-4" /></button>
+          <button onClick={() => setLocation("/")} className="p-0.5 hover:bg-white/20 rounded"><ArrowLeft className="w-4 h-4" /></button>
         </div>
       </div>
 
       {/* Toolbar */}
-      <div className="bg-[#d4d0c8] p-1.5 flex items-center gap-2 border-b border-[#808080] shrink-0">
-        <ToolbarIcon icon={<Save className="w-6 h-6 text-black" />} />
-        <ToolbarIcon icon={<RefreshCw className="w-6 h-6 text-green-700" />} />
-        <ToolbarIcon icon={<Plus className="w-6 h-6 text-green-600" />} />
-        <ToolbarIcon icon={<Trash2 className="w-6 h-6 text-red-600" />} />
-        <div className="w-px h-8 bg-gray-400 mx-1" />
-        <ToolbarIcon icon={<Search className="w-6 h-6 text-blue-700" />} />
-        <div className="w-px h-8 bg-gray-400 mx-1" />
-        <ToolbarIcon icon={<ChevronsLeft className="w-6 h-6" />} />
-        <ToolbarIcon icon={<ChevronLeft className="w-6 h-6" />} />
-        <ToolbarIcon icon={<ChevronRight className="w-6 h-6" />} />
-        <ToolbarIcon icon={<ChevronsRight className="w-6 h-6" />} />
-        <div className="w-px h-8 bg-gray-400 mx-1" />
-        <ToolbarIcon icon={<Printer className="w-6 h-6 text-slate-700" />} />
+      <div className="bg-[#d4d0c8] p-1 flex items-center gap-1 border-b border-[#808080]">
+        <ToolbarIcon icon={<Save className="w-5 h-5 text-black" />} />
+        <ToolbarIcon icon={<RefreshCw className="w-5 h-5 text-green-700" />} />
+        <ToolbarIcon icon={<Plus className="w-5 h-5 text-green-600" />} />
+        <ToolbarIcon icon={<Trash2 className="w-5 h-5 text-red-600" />} />
+        <div className="w-px h-6 bg-gray-400 mx-1" />
+        <ToolbarIcon icon={<Search className="w-5 h-5 text-blue-700" />} />
+        <div className="w-px h-6 bg-gray-400 mx-1" />
+        <ToolbarIcon icon={<ChevronsLeft className="w-5 h-5" />} />
+        <ToolbarIcon icon={<ChevronLeft className="w-5 h-5" />} />
+        <ToolbarIcon icon={<ChevronRight className="w-5 h-5" />} />
+        <ToolbarIcon icon={<ChevronsRight className="w-5 h-5" />} />
+        <div className="w-px h-6 bg-gray-400 mx-1" />
+        <ToolbarIcon icon={<Printer className="w-5 h-5 text-slate-700" />} />
       </div>
 
-      <main className="flex-1 p-4 overflow-auto">
+      <main className="flex-1 p-3 overflow-y-auto overflow-x-hidden">
         <Form {...form}>
-          <form className="max-w-[1600px] mx-auto space-y-4">
-            <div className="flex flex-col xl:flex-row gap-6">
+          <form className="space-y-3">
+            <div className="flex flex-col xl:flex-row gap-3">
               {/* Main Info Section */}
-              <div className="flex-[3] space-y-4">
-                <div className="bg-white border border-gray-300 rounded-sm p-4 relative pt-8 shadow-md">
-                  <div className="absolute top-0 left-6 -translate-y-1/2 bg-white px-2 text-[14px] font-bold text-gray-700 border-x border-t border-gray-300 rounded-t-sm px-4">
+              <div className="flex-1 space-y-3">
+                <div className="bg-white border border-gray-300 rounded-sm p-3 relative pt-6 shadow-sm">
+                  <div className="absolute top-0 left-4 -translate-y-1/2 bg-white px-2 text-[12px] font-bold text-gray-700">
                     Saisie d'une Reservation
                   </div>
                   
-                  <div className="grid grid-cols-12 gap-y-3 gap-x-6">
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">N? Reservation</label>
-                      <div className="flex gap-1 col-span-3">
-                        <Input {...form.register("numeroReservation")} className="h-8 text-[13px] border-gray-300 rounded-none w-32 font-medium" />
-                        <button type="button" className="h-8 px-2 bg-gray-100 border border-gray-300 text-[11px] font-bold">...</button>
+                  <div className="grid grid-cols-12 gap-y-2 gap-x-4">
+                    <div className="col-span-12 md:col-span-6 grid grid-cols-3 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right">N? Reservation</label>
+                      <div className="flex gap-1 col-span-2">
+                        <Input {...form.register("numeroReservation")} className="h-6 text-[11px] border-gray-300 rounded-none w-24" />
+                        <button type="button" className="h-6 px-1.5 bg-gray-100 border border-gray-300 text-[10px]">...</button>
                       </div>
                     </div>
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">Date Res.</label>
-                      <Input {...form.register("dateReservation")} className="h-8 text-[13px] border-gray-300 rounded-none w-40 font-medium" />
+                    <div className="col-span-12 md:col-span-6 grid grid-cols-3 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right">Date Reservation</label>
+                      <Input {...form.register("dateReservation")} className="h-6 text-[11px] border-gray-300 rounded-none w-32" />
                     </div>
 
-                    <div className="col-span-12 grid grid-cols-8 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right col-span-1">N? PEC</label>
-                      <Input {...form.register("numeroPriseEnCharge")} className="h-8 text-[13px] border-gray-300 rounded-none col-span-3 font-medium" />
+                    <div className="col-span-12 grid grid-cols-6 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right col-span-1">N? Prise en Charge</label>
+                      <Input {...form.register("numeroPriseEnCharge")} className="h-6 text-[11px] border-gray-300 rounded-none col-span-2" />
                     </div>
 
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">Structure Em.</label>
-                      <div className="flex gap-1 col-span-3">
-                        <Input {...form.register("structureEmettrice")} className="h-8 text-[13px] border-gray-300 rounded-none w-32 font-medium" />
-                        <button type="button" className="h-8 px-2 bg-gray-100 border border-gray-300 text-[11px] font-bold">----</button>
+                    <div className="col-span-12 md:col-span-6 grid grid-cols-3 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right">Structure Emettrice</label>
+                      <div className="flex gap-1 col-span-2">
+                        <Input {...form.register("structureEmettrice")} className="h-6 text-[11px] border-gray-300 rounded-none w-24" />
+                        <button type="button" className="h-6 px-1.5 bg-gray-100 border border-gray-300 text-[10px]">----</button>
                       </div>
                     </div>
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">Cp Analytique</label>
-                      <Input {...form.register("compteAnalytique")} className="h-8 text-[13px] border-gray-300 rounded-none w-40 font-medium" />
+                    <div className="col-span-12 md:col-span-6 grid grid-cols-3 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right">Compte Analytique</label>
+                      <Input {...form.register("compteAnalytique")} className="h-6 text-[11px] border-gray-300 rounded-none w-32" />
                     </div>
 
-                    <div className="col-span-12 grid grid-cols-12 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right col-span-2">Date Début</label>
-                      <Input {...form.register("dateDebut")} className="h-8 text-[13px] border-gray-300 rounded-none col-span-2 font-medium" />
-                      <label className="text-[13px] font-bold text-right col-span-2">Date Fin</label>
-                      <Input {...form.register("dateFin")} className="h-8 text-[13px] border-gray-300 rounded-none col-span-2 font-medium" />
-                      <label className="text-[13px] font-bold text-right col-span-2">Durée</label>
-                      <Input {...form.register("duree")} className="h-8 text-[13px] border-gray-300 rounded-none col-span-1 w-16 font-medium" />
+                    <div className="col-span-12 grid grid-cols-12 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right col-span-2">Date Debut Reservation</label>
+                      <Input {...form.register("dateDebut")} className="h-6 text-[11px] border-gray-300 rounded-none col-span-2" />
+                      <label className="text-[11px] font-bold text-right col-span-2">Date Fin Reservation</label>
+                      <Input {...form.register("dateFin")} className="h-6 text-[11px] border-gray-300 rounded-none col-span-2" />
+                      <label className="text-[11px] font-bold text-right col-span-2">Duree</label>
+                      <Input {...form.register("duree")} className="h-6 text-[11px] border-gray-300 rounded-none col-span-1 w-12" />
                     </div>
 
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">Etat Res.</label>
+                    <div className="col-span-12 grid grid-cols-6 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right col-span-1">Etat Reservation</label>
                       <Select defaultValue="Saisie">
-                        <SelectTrigger className="h-8 text-[13px] border-gray-300 rounded-none col-span-3 bg-white font-medium">
+                        <SelectTrigger className="h-6 text-[11px] border-gray-300 rounded-none col-span-2 bg-white">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -142,60 +142,60 @@ export default function ReservationForm() {
                       </Select>
                     </div>
 
-                    <div className="col-span-12 lg:col-span-6 grid grid-cols-4 items-center gap-3">
-                      <label className="text-[13px] font-bold text-right">Hotel</label>
-                      <div className="flex gap-1 col-span-3">
-                        <Input className="h-8 text-[13px] border-gray-300 rounded-none w-48 font-medium" />
-                        <button type="button" className="h-8 px-2 bg-gray-100 border border-gray-300 text-[11px] font-bold">----</button>
+                    <div className="col-span-12 grid grid-cols-6 items-center gap-2">
+                      <label className="text-[11px] font-bold text-right col-span-1">Hotel</label>
+                      <div className="flex gap-1 col-span-2">
+                        <Input className="h-6 text-[11px] border-gray-300 rounded-none w-32" />
+                        <button type="button" className="h-6 px-1.5 bg-gray-100 border border-gray-300 text-[10px]">----</button>
                       </div>
                     </div>
 
-                    <div className="col-span-12 grid grid-cols-12 items-start gap-3">
-                      <label className="text-[13px] font-bold text-right col-span-2">Observations</label>
-                      <textarea className="col-span-10 h-16 text-[13px] border border-gray-300 rounded-none p-2 focus:outline-none font-medium" />
+                    <div className="col-span-12 grid grid-cols-6 items-start gap-2">
+                      <label className="text-[11px] font-bold text-right col-span-1">Observations</label>
+                      <textarea className="col-span-5 h-12 text-[11px] border border-gray-300 rounded-none p-1 focus:outline-none" />
                     </div>
                   </div>
 
-                  <div className="mt-4 flex items-center gap-3">
-                    <label className="text-[13px] font-bold">Liste des Agents Vide</label>
-                    <Checkbox className="border-gray-400 rounded-none h-5 w-5" />
+                  <div className="mt-2 flex items-center gap-2">
+                    <label className="text-[11px] font-bold">Liste des Agents Vide</label>
+                    <Checkbox className="border-gray-400 rounded-none h-4 w-4" />
                   </div>
                 </div>
 
                 {/* Agents List Section */}
-                <div className="bg-white border border-gray-300 rounded-sm p-4 relative pt-8 shadow-md">
-                  <div className="absolute top-0 left-6 -translate-y-1/2 bg-white px-2 text-[14px] font-bold text-gray-700 border-x border-t border-gray-300 rounded-t-sm px-4">
+                <div className="bg-white border border-gray-300 rounded-sm p-3 relative pt-6 shadow-sm">
+                  <div className="absolute top-0 left-4 -translate-y-1/2 bg-white px-2 text-[12px] font-bold text-gray-700">
                     Liste des Agents
                   </div>
-                  <div className="overflow-auto border border-gray-200 max-h-[400px]">
-                    <table className="w-full border-collapse text-[13px]">
-                      <thead className="sticky top-0 bg-gray-50 z-10 shadow-sm">
-                        <tr className="border-b border-gray-200">
-                          <th className="p-2 text-center font-bold border-r border-gray-200 w-40">Matricule</th>
-                          <th className="p-2 border-r border-gray-200 w-10"></th>
-                          <th className="p-2 text-left font-bold border-r border-gray-200">Nom</th>
-                          <th className="p-2 text-left font-bold border-r border-gray-200">Prenom</th>
-                          <th className="p-2 text-center font-bold w-16">Annul</th>
+                  <div className="overflow-x-auto border border-gray-200">
+                    <table className="w-full border-collapse text-[11px]">
+                      <thead>
+                        <tr className="bg-gray-50 border-b border-gray-200">
+                          <th className="p-1.5 text-center font-bold border-r border-gray-200">Matricule</th>
+                          <th className="p-1.5 border-r border-gray-200 w-8"></th>
+                          <th className="p-1.5 text-left font-bold border-r border-gray-200">Nom</th>
+                          <th className="p-1.5 text-left font-bold border-r border-gray-200">Prenom</th>
+                          <th className="p-1.5 text-center font-bold">Annul</th>
                         </tr>
                       </thead>
                       <tbody>
                         {Array.from({ length: 10 }).map((_, i) => (
                           <tr key={i} className="border-b border-gray-100 hover:bg-slate-50">
-                            <td className="p-1 border-r border-gray-200">
-                              <Input className="h-8 text-[13px] border-0 rounded-none w-full px-2 font-medium" />
+                            <td className="p-0.5 border-r border-gray-200 w-32">
+                              <Input className="h-6 text-[11px] border-gray-300 rounded-none" />
                             </td>
-                            <td className="p-1 border-r border-gray-200 text-center">
-                              <button type="button" className="w-full h-8 bg-gray-100 border-0 text-[10px] font-bold">----</button>
+                            <td className="p-0.5 border-r border-gray-200 text-center">
+                              <button type="button" className="w-full h-6 bg-gray-100 border border-gray-300 text-[9px]">----</button>
                             </td>
-                            <td className="p-1 border-r border-gray-200">
-                              <Input className="h-8 text-[13px] border-0 rounded-none w-full px-2 font-medium" />
+                            <td className="p-0.5 border-r border-gray-200">
+                              <Input className="h-6 text-[11px] border-gray-300 rounded-none" />
                             </td>
-                            <td className="p-1 border-r border-gray-200">
-                              <Input className="h-8 text-[13px] border-0 rounded-none w-full px-2 font-medium" />
+                            <td className="p-0.5 border-r border-gray-200">
+                              <Input className="h-6 text-[11px] border-gray-300 rounded-none" />
                             </td>
-                            <td className="p-1 text-center">
-                              <div className="flex justify-center items-center h-8">
-                                <Checkbox className="border-gray-400 rounded-none h-4 w-4" defaultChecked={i===0} />
+                            <td className="p-0.5 text-center">
+                              <div className="flex justify-center">
+                                <Checkbox className="border-gray-400 rounded-none" defaultChecked={i===0} />
                               </div>
                             </td>
                           </tr>
@@ -207,26 +207,26 @@ export default function ReservationForm() {
               </div>
 
               {/* Side Panels */}
-              <div className="flex-1 space-y-4 flex flex-col min-w-[300px]">
-                <div className="bg-white border border-gray-300 rounded-sm p-4 relative pt-8 shadow-md shrink-0">
-                  <div className="absolute top-0 left-6 -translate-y-1/2 bg-white px-2 text-[14px] font-bold text-gray-700 border-x border-t border-gray-300 rounded-t-sm px-4">
-                    Offre & Prise en Charge
+              <div className="w-full xl:w-80 space-y-3 flex flex-col">
+                <div className="bg-white border border-gray-300 rounded-sm p-4 relative pt-6 shadow-sm">
+                  <div className="absolute top-0 left-4 -translate-y-1/2 bg-white px-2 text-[12px] font-bold text-gray-700">
+                    Offre & Type Prise en Charge
                   </div>
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <label className="text-[13px] font-bold">Offre</label>
+                      <label className="text-[11px] font-bold">Offre</label>
                       <div className="flex gap-1">
-                        <Input className="h-8 text-[13px] border-gray-300 rounded-none flex-1 font-medium" />
-                        <button type="button" className="h-8 px-2 bg-gray-100 border border-gray-300 text-[11px] font-bold">----</button>
+                        <Input className="h-6 text-[11px] border-gray-300 rounded-none flex-1" />
+                        <button type="button" className="h-6 px-1.5 bg-gray-100 border border-gray-300 text-[10px]">----</button>
                       </div>
                     </div>
-                    <div className="space-y-2 pt-2">
-                      <label className="text-[13px] font-bold">Type de Prise en Charge</label>
-                      <div className="space-y-1.5">
+                    <div className="space-y-1 pt-2">
+                      <label className="text-[11px] font-bold">Type de Prise en Charge</label>
+                      <div className="space-y-1">
                         {Array.from({ length: 4 }).map((_, i) => (
                           <div key={i} className="flex gap-1">
-                            <Input className="h-8 text-[13px] border-gray-300 rounded-none flex-1 font-medium" />
-                            <button type="button" className="h-8 px-2 bg-gray-100 border border-gray-300 text-[11px] font-bold">----</button>
+                            <Input className="h-6 text-[11px] border-gray-300 rounded-none flex-1" />
+                            <button type="button" className="h-6 px-1.5 bg-gray-100 border border-gray-300 text-[10px]">----</button>
                           </div>
                         ))}
                       </div>
@@ -234,7 +234,7 @@ export default function ReservationForm() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2.5 p-1">
+                <div className="flex flex-col gap-2 mt-4 flex-1">
                   <ActionButton label="BON DE COMMANDE" />
                   <ActionButton label="BON ANNULATION" />
                   <ActionButton label="BON REGULARISATION" />
@@ -242,16 +242,16 @@ export default function ReservationForm() {
                   <ActionButton label="TRAITEMENT BCs" />
                   <ActionButton label="LISTE DES BCs/JOUR" />
                   
-                  <div className="mt-6">
-                    <Button variant="outline" className="w-full h-12 border-gray-300 rounded-none bg-white text-[12px] font-extrabold px-4 py-2 border-2 border-slate-300 shadow-sm hover:bg-slate-50">
+                  <div className="mt-8 self-center">
+                    <Button variant="outline" className="h-10 border-gray-300 rounded-none bg-white text-[11px] font-bold px-4 py-2 flex items-center justify-center border-2 border-slate-200">
                       RAPPORTS D'ACTIVITE
                     </Button>
                   </div>
                 </div>
 
-                <div className="mt-auto grid grid-cols-3 items-center gap-3 pt-6 border-t border-gray-200 shrink-0">
-                  <label className="text-[13px] font-bold text-right">Etabli par :</label>
-                  <Input {...form.register("etabliPar")} className="h-8 text-[13px] border-gray-300 rounded-none col-span-2 font-medium" />
+                <div className="mt-auto grid grid-cols-4 items-center gap-2 pt-4 border-t border-gray-200">
+                  <label className="text-[11px] font-bold text-right col-span-1">Etabli(e) par :</label>
+                  <Input {...form.register("etabliPar")} className="h-6 text-[11px] border-gray-300 rounded-none col-span-3" />
                 </div>
               </div>
             </div>
