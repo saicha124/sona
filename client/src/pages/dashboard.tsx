@@ -89,9 +89,19 @@ export default function Dashboard() {
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
                     Liste des Hôtels
                   </button>
-                  <button className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2">
+                  <button 
+                    onClick={() => setLocation("/offers")}
+                    className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2"
+                  >
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
                     Liste des Offres
+                  </button>
+                  <button 
+                    onClick={() => setLocation("/regions")}
+                    className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
+                    Liste des Régions
                   </button>
                 </div>
               </div>

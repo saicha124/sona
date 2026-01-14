@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AgentForm from "@/pages/agent-form";
+import OffersPage from "@/pages/offers-page";
+import RegionsPage from "@/pages/regions-page";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,6 +19,8 @@ function Router() {
       {/* Protected Route - The Dashboard component handles the redirect if not logged in */}
       <Route path="/" component={Dashboard} />
       <Route path="/agents" component={AgentForm} />
+      <Route path="/offers" component={OffersPage} />
+      <Route path="/regions" component={RegionsPage} />
       
       {/* 404 Fallback */}
       <Route component={NotFound} />
