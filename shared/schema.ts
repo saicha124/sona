@@ -10,7 +10,35 @@ export const users = pgTable("users", {
   role: text("role").default("user"),
 });
 
-export const insertUserSchema = createInsertSchema(users);
+export const agents = pgTable("agents", {
+  id: serial("id").primaryKey(),
+  matricule: text("matricule").notNull().unique(),
+  nom: text("nom").notNull(),
+  prenom: text("prenom").notNull(),
+  nomJeunefille: text("nom_jeunefille"),
+  structure: text("structure").notNull(),
+  compteAnalytique: text("compte_analytique").notNull(),
+  type: text("type").notNull().default("SH"), // SH or Etranger
+});
 
-export type User = typeof users.$inferSelect;
-export type InsertUser = z.infer<typeof insertUserSchema>;
+export const offers = pgTable("offers", {
+  id: serial("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  libelle: text("libelle").notNull(),
+});
+
+export const regions = pgTable("regions", {
+  id: serial("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  nom: text("nom").notNull(),
+  compteAnalytique: text("compte_analytique").notNull(),
+  email: text("email"),
+});
+
+export const insertAgentSchema = createInsertSchema(agents);
+export const insertOfferSchema = createInsertSchema(offers);
+export const insertRegionSchema = createInsertSchema(regions);
+
+export type Agent = typeof agents.$inferSelect;
+export type Offer = typeof offers.$inferSelect;
+export type Region = typeof regions.$inferSelect;
