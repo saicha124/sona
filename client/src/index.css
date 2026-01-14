@@ -56,11 +56,15 @@
 }
 
 .glass-panel {
-  @apply bg-white border border-slate-200 shadow-sm;
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
 }
 
 .sidebar-item-active {
-  @apply bg-blue-600 text-white shadow-md shadow-blue-200/50 hover:bg-blue-700;
+  @apply bg-blue-600 text-white shadow-lg shadow-blue-500/20 hover:bg-blue-700;
 }
 
 /* Input Autofill Styles */

@@ -229,17 +229,30 @@ function LegacyTreeSidebar() {
 
 function DashboardCard({ title, value, subtitle, trend, color }: { title: string, value: string, subtitle: string, trend: string, color: "blue" | "orange" | "slate" }) {
   const colorStyles = {
-    blue: "border-l-4 border-l-blue-600",
-    orange: "border-l-4 border-l-orange-500",
-    slate: "border-l-4 border-l-slate-500"
+    blue: "border-t-4 border-t-blue-600",
+    orange: "border-t-4 border-t-orange-500",
+    slate: "border-t-4 border-t-slate-500"
+  };
+
+  const iconColor = {
+    blue: "text-blue-600 bg-blue-50",
+    orange: "text-orange-600 bg-orange-50",
+    slate: "text-slate-600 bg-slate-50"
   };
 
   return (
-    <div className={`bg-white rounded-lg shadow-sm border border-slate-100 p-6 ${colorStyles[color]} hover:shadow-md transition-shadow`}>
-      <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wider mb-2">{title}</h3>
-      <div className="text-3xl font-bold text-slate-900 mb-1">{value}</div>
-      <div className="text-sm text-slate-500 mb-4">{subtitle}</div>
-      <div className="text-xs font-medium px-2 py-1 bg-slate-100 rounded inline-block text-slate-600">
+    <div className={`bg-white rounded-xl shadow-sm border border-slate-100 p-6 ${colorStyles[color]} card-hover`}>
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{title}</h3>
+        <div className={`p-2 rounded-lg ${iconColor[color]}`}>
+          {color === "blue" && <Monitor className="w-4 h-4" />}
+          {color === "orange" && <User className="w-4 h-4" />}
+          {color === "slate" && <FileText className="w-4 h-4" />}
+        </div>
+      </div>
+      <div className="text-4xl font-black text-slate-900 mb-1">{value}</div>
+      <div className="text-sm text-slate-500 mb-4 font-medium">{subtitle}</div>
+      <div className={`text-[10px] font-bold px-2 py-1 rounded-full inline-block ${color === 'blue' ? 'bg-blue-50 text-blue-700' : color === 'orange' ? 'bg-orange-50 text-orange-700' : 'bg-slate-50 text-slate-700'}`}>
         {trend}
       </div>
     </div>
@@ -250,12 +263,12 @@ function QuickAction({ icon, label, onClick }: { icon: React.ReactNode, label: s
   return (
     <button 
       onClick={onClick}
-      className="flex flex-col items-center justify-center p-6 bg-white rounded-lg border border-slate-200 hover:border-primary/50 hover:shadow-md transition-all group"
+      className="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-primary/30 hover:shadow-lg transition-all group active:scale-95"
     >
-      <div className="text-slate-400 group-hover:text-primary mb-3 transition-colors">
+      <div className="p-3 bg-slate-50 rounded-full text-slate-400 group-hover:text-primary group-hover:bg-primary/5 mb-3 transition-all duration-300">
         {icon}
       </div>
-      <span className="text-sm font-medium text-slate-700 group-hover:text-primary transition-colors">{label}</span>
+      <span className="text-xs font-bold text-slate-600 group-hover:text-primary transition-colors uppercase tracking-tight">{label}</span>
     </button>
   );
 }

@@ -78,26 +78,29 @@ export default function AuthPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            className="w-full bg-corporate-gradient rounded-xl shadow-2xl overflow-hidden border border-blue-900/20"
+            className="w-full bg-corporate-gradient rounded-2xl shadow-[0_20px_50px_rgba(30,64,175,0.3)] overflow-hidden border border-blue-900/10"
           >
-            <div className="p-8">
+            <div className="p-10">
+              <div className="mb-8 text-center">
+                <p className="text-blue-100/80 text-sm font-medium tracking-wide uppercase">Système de Gestion Intégré</p>
+              </div>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 
                 {/* Username Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="username" className="text-white font-bold text-base ml-1">
+                  <Label htmlFor="username" className="text-white font-bold text-xs uppercase tracking-widest ml-1 opacity-90">
                     Utilisateur
                   </Label>
-                  <div className="relative">
+                  <div className="relative group">
                     <Input
                       id="username"
                       type="text"
-                      className="h-12 bg-white/95 border-0 focus-visible:ring-2 focus-visible:ring-orange-400 text-slate-900 font-medium text-lg placeholder:text-slate-400"
+                      className="h-14 bg-white/10 border-white/20 focus-visible:ring-2 focus-visible:ring-orange-400 text-white font-medium text-lg placeholder:text-white/30 rounded-xl transition-all duration-300 group-hover:bg-white/15"
                       placeholder="Nom d'utilisateur"
                       {...form.register("username")}
                     />
                     {form.formState.errors.username && (
-                      <span className="text-orange-300 text-xs font-medium absolute -bottom-5 left-1">
+                      <span className="text-orange-300 text-[10px] font-bold uppercase tracking-tighter absolute -bottom-5 left-1">
                         {form.formState.errors.username.message}
                       </span>
                     )}
@@ -106,19 +109,19 @@ export default function AuthPage() {
 
                 {/* Password Field */}
                 <div className="space-y-2 mt-4">
-                  <Label htmlFor="password" className="text-white font-bold text-base ml-1">
+                  <Label htmlFor="password" className="text-white font-bold text-xs uppercase tracking-widest ml-1 opacity-90">
                     Mot de Passe
                   </Label>
-                  <div className="relative">
+                  <div className="relative group">
                     <Input
                       id="password"
                       type="password"
-                      className="h-12 bg-white/95 border-0 focus-visible:ring-2 focus-visible:ring-orange-400 text-slate-900 font-medium text-lg placeholder:text-slate-400"
+                      className="h-14 bg-white/10 border-white/20 focus-visible:ring-2 focus-visible:ring-orange-400 text-white font-medium text-lg placeholder:text-white/30 rounded-xl transition-all duration-300 group-hover:bg-white/15"
                       placeholder="••••••••"
                       {...form.register("password")}
                     />
                     {form.formState.errors.password && (
-                      <span className="text-orange-300 text-xs font-medium absolute -bottom-5 left-1">
+                      <span className="text-orange-300 text-[10px] font-bold uppercase tracking-tighter absolute -bottom-5 left-1">
                         {form.formState.errors.password.message}
                       </span>
                     )}
@@ -126,22 +129,22 @@ export default function AuthPage() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-4 pt-4">
+                <div className="flex items-center gap-4 pt-6">
                   <Button 
                     type="submit" 
                     disabled={isPending}
-                    className="flex-1 bg-white text-primary hover:bg-slate-100 h-12 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-200"
+                    className="flex-1 bg-white text-primary hover:bg-blue-50 h-14 text-lg font-black shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl"
                   >
-                    {isPending ? <Loader2 className="w-5 h-5 animate-spin" /> : "OK"}
+                    {isPending ? <Loader2 className="w-6 h-6 animate-spin" /> : "CONNEXION"}
                   </Button>
                   
                   <Button 
                     type="button" 
                     variant="outline"
                     onClick={handleReset}
-                    className="flex-1 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-white h-12 text-lg font-bold"
+                    className="flex-1 bg-transparent border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 h-14 text-lg font-bold rounded-xl transition-all duration-300"
                   >
-                    Annuler
+                    ANNULER
                   </Button>
                 </div>
 
@@ -149,9 +152,9 @@ export default function AuthPage() {
             </div>
             
             {/* Footer of the card */}
-            <div className="bg-black/10 px-8 py-3 text-center">
-              <p className="text-blue-100 text-xs font-medium">
-                Accès réservé au personnel autorisé
+            <div className="bg-black/20 px-8 py-4 text-center border-t border-white/5">
+              <p className="text-blue-100/60 text-[10px] font-bold uppercase tracking-[0.2em]">
+                Sécurisé par Sonatrach IT
               </p>
             </div>
           </motion.div>
