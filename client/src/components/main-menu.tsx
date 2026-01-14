@@ -19,15 +19,15 @@ const menuItems = [
 
 export function MainMenu() {
   return (
-    <div className="w-full bg-[#2c5e6b] text-white/90 py-0.5 px-2 border-b border-white/10 shadow-sm z-50">
+    <div className="w-full bg-white/50 backdrop-blur-xl py-1 px-4 border-b border-slate-200 sticky top-0 z-[100] shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
       <NavigationMenu className="max-w-none justify-start">
-        <NavigationMenuList className="gap-0">
+        <NavigationMenuList className="gap-1">
           {menuItems.map((item) => (
             <NavigationMenuItem key={item}>
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "bg-transparent text-white/90 hover:bg-white/15 hover:text-white h-7 px-3 text-[13px] font-medium transition-colors rounded-none focus:bg-white/20"
+                  "bg-transparent text-slate-600 hover:bg-primary/5 hover:text-primary h-8 px-4 text-xs font-black uppercase tracking-widest transition-all rounded-xl border border-transparent hover:border-primary/10"
                 )}
                 href="#"
               >
