@@ -78,7 +78,10 @@ export default function Dashboard() {
               <div>
                 <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-2">Données de base</h3>
                 <div className="space-y-0.5">
-                  <button className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2">
+                  <button 
+                    onClick={() => setLocation("/agents")}
+                    className="w-full text-left px-3 py-1.5 text-[13px] text-slate-600 hover:bg-blue-50 hover:text-primary rounded transition-colors flex items-center gap-2"
+                  >
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
                     Dossier Agents
                   </button>

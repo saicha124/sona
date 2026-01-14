@@ -35,10 +35,16 @@ export const regions = pgTable("regions", {
   email: text("email"),
 });
 
+export const insertUserSchema = createInsertSchema(users);
 export const insertAgentSchema = createInsertSchema(agents);
 export const insertOfferSchema = createInsertSchema(offers);
 export const insertRegionSchema = createInsertSchema(regions);
 
+export type User = typeof users.$inferSelect;
+export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Agent = typeof agents.$inferSelect;
+export type InsertAgent = z.infer<typeof insertAgentSchema>;
 export type Offer = typeof offers.$inferSelect;
+export type InsertOffer = z.infer<typeof insertOfferSchema>;
 export type Region = typeof regions.$inferSelect;
+export type InsertRegion = z.infer<typeof insertRegionSchema>;

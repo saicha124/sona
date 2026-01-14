@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
+import AgentForm from "@/pages/agent-form";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       
       {/* Protected Route - The Dashboard component handles the redirect if not logged in */}
       <Route path="/" component={Dashboard} />
+      <Route path="/agents" component={AgentForm} />
       
       {/* 404 Fallback */}
       <Route component={NotFound} />
